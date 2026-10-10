@@ -1,0 +1,79 @@
+{
+  "_meta": {
+    "note": "Lightweight, offline model of OPEN security frameworks and the documented mappings between them. Full technique/CWE/CAPEC catalogs are intentionally not bundled; this ships the stable enumerations and cross-walks that developers need day to day. Sources are public standards (MITRE ATT&CK, MITRE D3FEND, Lockheed Martin Cyber Kill Chain, Diamond Model, David Bianco's Pyramid of Pain, OASIS STIX 2.1, NIST CSF).",
+    "version": "0.1.0"
+  },
+  "attack_tactics": [
+    {"id": "TA0043", "name": "Reconnaissance"},
+    {"id": "TA0042", "name": "Resource Development"},
+    {"id": "TA0001", "name": "Initial Access"},
+    {"id": "TA0002", "name": "Execution"},
+    {"id": "TA0003", "name": "Persistence"},
+    {"id": "TA0004", "name": "Privilege Escalation"},
+    {"id": "TA0005", "name": "Defense Evasion"},
+    {"id": "TA0006", "name": "Credential Access"},
+    {"id": "TA0007", "name": "Discovery"},
+    {"id": "TA0008", "name": "Lateral Movement"},
+    {"id": "TA0009", "name": "Collection"},
+    {"id": "TA0011", "name": "Command and Control"},
+    {"id": "TA0010", "name": "Exfiltration"},
+    {"id": "TA0040", "name": "Impact"}
+  ],
+  "kill_chain": [
+    {"order": 1, "name": "Reconnaissance"},
+    {"order": 2, "name": "Weaponization"},
+    {"order": 3, "name": "Delivery"},
+    {"order": 4, "name": "Exploitation"},
+    {"order": 5, "name": "Installation"},
+    {"order": 6, "name": "Command & Control"},
+    {"order": 7, "name": "Actions on Objectives"}
+  ],
+  "kill_chain_to_attack": {
+    "Reconnaissance": ["TA0043"],
+    "Weaponization": ["TA0042"],
+    "Delivery": ["TA0001"],
+    "Exploitation": ["TA0002", "TA0004"],
+    "Installation": ["TA0003", "TA0005"],
+    "Command & Control": ["TA0011"],
+    "Actions on Objectives": ["TA0007", "TA0008", "TA0009", "TA0010", "TA0040", "TA0006"]
+  },
+  "diamond": [
+    {"vertex": "Adversary", "note": "The actor/organisation behind the intrusion."},
+    {"vertex": "Capability", "note": "The tools and techniques used (maps to ATT&CK)."},
+    {"vertex": "Infrastructure", "note": "The physical/logical resources used (C2, domains, IPs)."},
+    {"vertex": "Victim", "note": "The target: person, org, asset, or data."}
+  ],
+  "pyramid_of_pain": [
+    {"level": 1, "name": "Hash Values", "pain": "Trivial"},
+    {"level": 2, "name": "IP Addresses", "pain": "Easy"},
+    {"level": 3, "name": "Domain Names", "pain": "Simple"},
+    {"level": 4, "name": "Host Artifacts", "pain": "Annoying"},
+    {"level": 5, "name": "Network Artifacts", "pain": "Annoying"},
+    {"level": 6, "name": "Tools", "pain": "Challenging"},
+    {"level": 7, "name": "TTPs", "pain": "Tough"}
+  ],
+  "stix_sdo": ["attack-pattern", "campaign", "course-of-action", "grouping", "identity", "incident",
+    "indicator", "infrastructure", "intrusion-set", "location", "malware", "malware-analysis", "note",
+    "observed-data", "opinion", "report", "threat-actor", "tool", "vulnerability"],
+  "stix_sro": ["relationship", "sighting"],
+  "nist_csf": [
+    {"id": "GV", "name": "Govern", "csf_version": "2.0"},
+    {"id": "ID", "name": "Identify"},
+    {"id": "PR", "name": "Protect"},
+    {"id": "DE", "name": "Detect"},
+    {"id": "RS", "name": "Respond"},
+    {"id": "RC", "name": "Recover"}
+  ],
+  "d3fend_tactics": ["Model", "Harden", "Detect", "Isolate", "Deceive", "Evict", "Restore"],
+  "frameworks": [
+    {"key": "attack", "name": "MITRE ATT&CK", "kind": "offensive", "ids": "TA####, T####(.###)"},
+    {"key": "d3fend", "name": "MITRE D3FEND", "kind": "defensive", "ids": "D3-XXXX"},
+    {"key": "cwe", "name": "MITRE CWE (Common Weakness Enumeration)", "kind": "weakness", "ids": "CWE-###"},
+    {"key": "capec", "name": "MITRE CAPEC (Common Attack Pattern Enumeration)", "kind": "attack-pattern", "ids": "CAPEC-###"},
+    {"key": "kill_chain", "name": "Lockheed Martin Cyber Kill Chain", "kind": "phase-model", "ids": "1-7"},
+    {"key": "diamond", "name": "Diamond Model of Intrusion Analysis", "kind": "analytic-model", "ids": "4 core features"},
+    {"key": "pyramid", "name": "Pyramid of Pain", "kind": "indicator-model", "ids": "7 tiers"},
+    {"key": "stix", "name": "OASIS STIX 2.1", "kind": "exchange-format", "ids": "SDO/SRO types"},
+    {"key": "nist_csf", "name": "NIST Cybersecurity Framework", "kind": "governance", "ids": "6 functions (CSF 2.0)"}
+  ]
+}

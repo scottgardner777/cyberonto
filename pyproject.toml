@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cyberonto"
+version = "0.1.0"
+description = "A small, dependency-free toolkit for security data: IOC extraction/classification/defanging and an offline model of the open security frameworks (ATT&CK, D3FEND, kill chain, Diamond, Pyramid of Pain, STIX, NIST CSF) with cross-mappings."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [{ name = "cyberonto contributors" }]
+keywords = ["security", "cti", "threat-intelligence", "osint", "ioc", "indicators",
+    "mitre", "attack", "d3fend", "kill-chain", "diamond-model", "pyramid-of-pain", "stix", "ontology"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://pypi.org/project/cyberonto/"
+Issues = "https://pypi.org/project/cyberonto/"
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+cyberonto = ["py.typed", "data/*.json"]
